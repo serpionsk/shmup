@@ -1,11 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_power_up",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_explosao_tiro",
+  "eventList":[],
   "managed":true,
-  "name":"obj_power_up",
+  "name":"obj_explosao_tiro",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -30,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_power_up",
-    "path":"sprites/spr_power_up/spr_power_up.yy",
+    "name":"spr_part_tiro",
+    "path":"sprites/spr_part_tiro/spr_part_tiro.yy",
   },
   "spriteMaskId":null,
   "visible":true,

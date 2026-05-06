@@ -12,7 +12,7 @@ max_level_tiro = 3
 //vidas
 vidas = 3;
 //escudos
-escudos = 3;
+escudos = 5;
 
 #endregion
 
@@ -20,7 +20,7 @@ escudos = 3;
 //função que controla o player por codigo
 controla_player = function()
 {
-	var _cima, _baixo, _dire, _esq, _atirar;	
+	var _cima, _baixo, _dire, _esq, _atirar, _enter;	
 	
 	_cima = keyboard_check(ord("W")) or keyboard_check(vk_up);
 	_baixo = keyboard_check(ord("S")) or keyboard_check(vk_down);
@@ -28,6 +28,8 @@ controla_player = function()
 	_esq = keyboard_check(ord("A")) or keyboard_check(vk_left);
 	
 	_atirar = keyboard_check(vk_space) or mouse_check_button(mb_left);
+	
+	_enter = keyboard_check_pressed(vk_enter);
 	
 	//movimentação horizontal
 	var _velh = (_dire - _esq) * vel;
@@ -74,6 +76,7 @@ controla_player = function()
 	{
 		level_tiro --;
 	}
+	if (_enter) perde_vida();
 }
 
 //metodos de tiro
@@ -100,5 +103,31 @@ ganha_level = function()
 {
 	if (level_tiro >= max_level_tiro) exit
 	level_tiro++;
+}
+
+desenha_icone = function(_sprite = spr_life_GUI, _qtd = vidas, _Yvalue = y)
+{
+	var _Ypos = _Yvalue
+	var _space_sprite = sprite_get_width(_sprite);
+	var _max_space = clamp(_space_sprite, 0, _space_sprite)
+	
+	repeat(_qtd)
+	{
+		
+		draw_sprite_ext(_sprite, 0, 0 + _space_sprite, _Ypos  - 20, 1, 1, 0, c_white, 0.5);
+		_space_sprite += _max_space + 5;
+	}
+}
+perde_vida = function()
+{
+	if (vidas > 0)
+	{
+		vidas--;
+	}
+	else
+	{
+		instance_destroy();
+	}
+	
 }
 #endregion

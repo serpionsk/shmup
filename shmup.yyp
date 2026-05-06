@@ -25,6 +25,7 @@
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Backgrounds","folderPath":"folders/Sprites/Backgrounds.yy","name":"Backgrounds","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Escudo","folderPath":"folders/Sprites/Escudo.yy","name":"Escudo","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Partículas","folderPath":"folders/Sprites/Partículas.yy","name":"Partículas","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"GUI","folderPath":"folders/Sprites/GUI.yy","name":"GUI","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Life","folderPath":"folders/Sprites/Life.yy","name":"Life","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Player","folderPath":"folders/Sprites/Player.yy","name":"Player","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -42,6 +43,7 @@
   },
   "name":"shmup",
   "resources":[
+    {"id":{"name":"obj_explosao_tiro","path":"objects/obj_explosao_tiro/obj_explosao_tiro.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_power_up","path":"objects/obj_power_up/obj_power_up.yy",},},
     {"id":{"name":"obj_tiro","path":"objects/obj_tiro/obj_tiro.yy",},},
@@ -55,6 +57,7 @@
     {"id":{"name":"spr_background3","path":"sprites/spr_background3/spr_background3.yy",},},
     {"id":{"name":"spr_background4","path":"sprites/spr_background4/spr_background4.yy",},},
     {"id":{"name":"spr_life_GUI","path":"sprites/spr_life_GUI/spr_life_GUI.yy",},},
+    {"id":{"name":"spr_part_tiro","path":"sprites/spr_part_tiro/spr_part_tiro.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"spr_power_up","path":"sprites/spr_power_up/spr_power_up.yy",},},
     {"id":{"name":"spr_shield_GUI","path":"sprites/spr_shield_GUI/spr_shield_GUI.yy",},},
