@@ -8,7 +8,8 @@ espera_tiro = 20;
 timer_tiro = 0
 //valor que define level do tiro
 level_tiro = 1;
-
+//
+max_level_tiro = 3
 #endregion
 
 #region metodos
@@ -46,25 +47,28 @@ controla_player = function()
 	//se atirar e o timer tiro forem true
 	if (_atirar and timer_tiro <=0)
 	{
-		if (level_tiro > 1)
-		{
-			tiro_2();
-			timer_tiro = espera_tiro;
-		}
-		else
+		if (level_tiro == 1)
 		{
 			tiro_1();
-			timer_tiro = espera_tiro;
 		}
+		else if (level_tiro == 2)
+		{
+			tiro_2();
+		}
+		else if (level_tiro == 3)
+		{
+			tiro_3();
+		}
+		timer_tiro = espera_tiro;
 	}
 	
-	if (_cima)
+	if (keyboard_check_pressed(ord("O")))
 	{
-		level_tiro = 1;
+		level_tiro ++;
 	}
-		if (_baixo)
+	if (keyboard_check_pressed(ord("L")))
 	{
-		level_tiro = 2;
+		level_tiro --;
 	}
 }
 
@@ -78,11 +82,19 @@ tiro_1 = function()
 
 tiro_2 = function()
 {
-	var _tiro = instance_create_layer(x-15, y, "Projetil", obj_tiro);
+	var _tiro = instance_create_layer(x-10, y, "Projetil", obj_tiro);
 	_tiro.vspeed = -10;
-	_tiro = instance_create_layer(x+6, y, "Projetil", obj_tiro);
-	_tiro.vspeed = -10;
-	
+	_tiro = instance_create_layer(x+10, y, "Projetil", obj_tiro);
+	_tiro.vspeed = -10;	
 }
-
+tiro_3 = function()
+{
+	tiro_1();
+	tiro_2();
+}
+ganha_level = function()
+{
+	if (level_tiro >= max_level_tiro) exit
+	level_tiro++;
+}
 #endregion
