@@ -1,3 +1,7 @@
+//funcao de movimentacao e tiro do player
 controla_player();
 
-show_debug_message(level_tiro);
+if (keyboard_check_released(vk_tab))
+{
+	global.debug = !global.debug;
+}

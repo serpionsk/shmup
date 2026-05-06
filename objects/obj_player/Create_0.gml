@@ -1,15 +1,19 @@
 #region variaveis
 //velocidade do player
 vel = 2
-
 //tempo de espera para atirar novamente
 espera_tiro = 20;
 //valor que permite atirar ou não se esta zerado
 timer_tiro = 0
 //valor que define level do tiro
 level_tiro = 1;
-//
+//numero maximo do nivel de tiro
 max_level_tiro = 3
+//vidas
+vidas = 3;
+//escudos
+escudos = 3;
+
 #endregion
 
 #region metodos
