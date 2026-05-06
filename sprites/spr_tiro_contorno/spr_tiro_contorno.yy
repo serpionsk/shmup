@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Projétil",
-    "path":"folders/Sprites/Projétil.yy",
+    "name":"Player",
+    "path":"folders/Sprites/Projétil/Player.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

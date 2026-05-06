@@ -13,6 +13,12 @@ max_level_tiro = 3
 vidas = 3;
 //escudos
 escudos = 5;
+//variavel que guarda as informações do meu escudo
+meu_escudo = noone;
+//variavel que permite o player levar dano, se caso não estiver invencivel
+invencivel = false;
+//segundos de invencibilidade
+segundos_invencivel = 2;
 
 #endregion
 
@@ -20,7 +26,7 @@ escudos = 5;
 //função que controla o player por codigo
 controla_player = function()
 {
-	var _cima, _baixo, _dire, _esq, _atirar, _enter;	
+	var _cima, _baixo, _dire, _esq, _atirar, _enter, _e;	
 	
 	_cima = keyboard_check(ord("W")) or keyboard_check(vk_up);
 	_baixo = keyboard_check(ord("S")) or keyboard_check(vk_down);
@@ -30,6 +36,8 @@ controla_player = function()
 	_atirar = keyboard_check(vk_space) or mouse_check_button(mb_left);
 	
 	_enter = keyboard_check_pressed(vk_enter);
+	
+	_e = keyboard_check_pressed(ord("E"));
 	
 	//movimentação horizontal
 	var _velh = (_dire - _esq) * vel;
@@ -77,6 +85,10 @@ controla_player = function()
 		level_tiro --;
 	}
 	if (_enter) perde_vida();
+	if (_e)
+	{
+		gasta_escudo();
+	}
 }
 
 //metodos de tiro
@@ -120,14 +132,27 @@ desenha_icone = function(_sprite = spr_life_GUI, _qtd = vidas, _Yvalue = y)
 }
 perde_vida = function()
 {
-	if (vidas > 0)
+	if (invencivel = false)
 	{
-		vidas--;
-	}
-	else
-	{
-		instance_destroy();
+		if (vidas > 0)
+		{
+			vidas--;
+		}
+		else
+		{
+			instance_destroy();
+		}
 	}
 	
+}
+gasta_escudo = function()
+{
+	if (escudos > 0 && meu_escudo = noone)
+	{
+		escudos--;
+		meu_escudo = instance_create_layer(x, y, "Escudo", obj_escudo);
+		invencivel = true;
+		alarm[0] = game_get_speed(gamespeed_fps) * segundos_invencivel;
+	}
 }
 #endregion
