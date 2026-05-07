@@ -89,10 +89,18 @@ controla_player = function()
 	{
 		gasta_escudo();
 	}
+	if instance_exists(meu_escudo)
+	{
+		meu_escudo.x = x;
+		meu_escudo.y = y;
+	}
+else
+{
+	meu_escudo = noone;
+}
 }
 
 //metodos de tiro
-
 tiro_1 = function()
 {
 	var _tiro = instance_create_layer(x, y, "Projetil", obj_tiro);
@@ -117,6 +125,7 @@ ganha_level = function()
 	level_tiro++;
 }
 
+//metodo de instancia da GUI
 desenha_icone = function(_sprite = spr_life_GUI, _qtd = vidas, _Yvalue = y)
 {
 	var _Ypos = _Yvalue
@@ -130,6 +139,8 @@ desenha_icone = function(_sprite = spr_life_GUI, _qtd = vidas, _Yvalue = y)
 		_space_sprite += _max_space + 5;
 	}
 }
+
+//metodo de dano recebido
 perde_vida = function()
 {
 	if (invencivel = false)
@@ -145,6 +156,7 @@ perde_vida = function()
 	}
 	
 }
+//metodo de escudos gastos
 gasta_escudo = function()
 {
 	if (escudos > 0 && meu_escudo = noone)

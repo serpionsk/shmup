@@ -1,0 +1,1 @@
+destroi_unidade(obj_explosao_tiroplayer);
