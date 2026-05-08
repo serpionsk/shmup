@@ -1,4 +1,4 @@
-alarm[0] = game_get_speed(gamespeed_fps) * random_range(1, 2);
+alarm[0] = game_get_speed(gamespeed_fps) * 2;
 randomise();
 
 atirando = function()
@@ -17,3 +17,5 @@ morrendo = function()
 		instance_create_layer(x, y, "Coletaveis", obj_power_up);
 	}
 }
+
+estou_em_sequencia = in_sequence;
