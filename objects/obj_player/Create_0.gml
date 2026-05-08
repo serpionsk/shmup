@@ -148,10 +148,12 @@ perde_vida = function()
 		if (vidas > 0)
 		{
 			vidas--;
+			screanshake(10);
 		}
 		else
 		{
 			instance_destroy();
+			screanshake(50);
 		}
 	}
 	

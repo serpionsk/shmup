@@ -2,6 +2,10 @@ vidas = 10;
 show_debug_message(y)
 estado = "chegando"
 timer_tiro = game_get_speed(gamespeed_fps) * 3;
+contador_tiro = 0;
+decidi_direcao = false;
+
+
 maquina_de_estados = function()
 {
 	switch(estado)
@@ -27,7 +31,9 @@ maquina_de_estados = function()
 			else
 			{
 				estado = choose("atirando", "atirando2");
-				timer_tiro = game_get_speed(gamespeed_fps) * 3;
+				contador_tiro++;
+				timer_tiro = game_get_speed(gamespeed_fps) * 2;
+				
 			}
 		}
 		break;
@@ -40,7 +46,14 @@ maquina_de_estados = function()
 				_tiro.vspeed = 2;
 				_tiro.direction = _dir;
 				_tiro.image_angle = _dir+90;
-				estado = "carregando"
+				if (contador_tiro < 3)
+				{
+					estado = "carregando";
+				}
+				else
+				{
+					estado = "fugindo";
+				}
 			}
 		}
 		break;
@@ -48,12 +61,37 @@ maquina_de_estados = function()
 		{
 			if (instance_exists(obj_player))
 			{
-				var _dir = point_direction(x, y, obj_player.x, obj_player.y);
-				var _tiro = instance_create_layer(x, y, "Projetil", obj_tiro_inimigo2b);
-				_tiro.vspeed = 2;
-				_tiro.direction = _dir;
-				_tiro.image_angle = _dir+90;
-				estado = "carregando"
+				var _dir2 = 255;
+				repeat(3)
+				{
+					var _tiro = instance_create_layer(x, y, "Projetil", obj_tiro_inimigo2b);
+					_tiro.speed += 4;
+					_tiro.direction = _dir2;
+					_dir2 += 15;
+				}
+				if (contador_tiro < 3)
+				{
+					estado = "carregando";
+				}
+				else
+				{
+					estado = "fugindo";
+				}
+			}
+		}
+		break;
+		case "fugindo":
+		{
+			if (decidi_direcao == false)
+			{
+				hspeed = choose(-1, 1);
+				decidi_direcao = true;
+			}
+			vspeed = -1;
+			if (y <= -67)
+			{
+				instance_destroy();
+				show_debug_message("morri!");
 			}
 		}
 		break;

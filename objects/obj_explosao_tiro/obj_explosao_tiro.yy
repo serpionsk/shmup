@@ -8,8 +8,8 @@
   "name":"obj_explosao_tiro",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Inimigo",
+    "path":"folders/Objects/Inimigo.yy",
   },
   "parentObjectId":null,
   "persistent":false,

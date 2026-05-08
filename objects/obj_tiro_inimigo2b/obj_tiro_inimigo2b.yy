@@ -6,10 +6,13 @@
   "name":"obj_tiro_inimigo2b",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Inimigo",
+    "path":"folders/Objects/Inimigo.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_tiro_inimigo2a",
+    "path":"objects/obj_tiro_inimigo2a/obj_tiro_inimigo2a.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

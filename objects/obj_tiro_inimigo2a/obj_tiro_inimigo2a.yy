@@ -6,8 +6,8 @@
   "name":"obj_tiro_inimigo2a",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Inimigo",
+    "path":"folders/Objects/Inimigo.yy",
   },
   "parentObjectId":{
     "name":"obj_tiro_inimigo",
