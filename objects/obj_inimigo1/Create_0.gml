@@ -10,6 +10,7 @@ atirando = function()
 
 morrendo = function()
 {
+	screanshake(5);
 	destroi_unidade(obj_explosao_inimigo);
 	var _chance = random(100);
 	if (_chance > 90)

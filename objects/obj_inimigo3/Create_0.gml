@@ -102,8 +102,10 @@ maquina_de_estados = function()
 morrendo = function()
 {
 	vidas--;
+	screanshake(5);
 	if (vidas < 1)
 	{
 		destroi_unidade(obj_explosao_inimigo);
+		screanshake(10);
 	}
 }

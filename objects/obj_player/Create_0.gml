@@ -1,14 +1,20 @@
 #region variaveis
+
+
 //velocidade do player
 vel = 2
+
+
 //tempo de espera para atirar novamente
-espera_tiro = 20;
+espera_tiro = 18;
 //valor que permite atirar ou não se esta zerado
 timer_tiro = 0
 //valor que define level do tiro
 level_tiro = 1;
 //numero maximo do nivel de tiro
 max_level_tiro = 3
+
+
 //vidas
 vidas = 3;
 //escudos
@@ -20,7 +26,17 @@ invencivel = false;
 //segundos de invencibilidade
 segundos_invencivel = 2;
 
+
+//inicia a alteraçãop nas escalas visuais do efeito mola(sem alterar colisao)
+inicia_efeito_mola();
+
+
+//variavel que checa se tomei dano ou não (0 = não)
+inicia_efeito_dano();
+
+
 #endregion
+
 
 #region metodos
 //função que controla o player por codigo
@@ -34,20 +50,19 @@ controla_player = function()
 	_esq = keyboard_check(ord("A")) or keyboard_check(vk_left);
 	
 	_atirar = keyboard_check(vk_space) or mouse_check_button(mb_left);
-	
 	_enter = keyboard_check_pressed(vk_enter);
-	
 	_e = keyboard_check_pressed(ord("E"));
+	
 	
 	//movimentação horizontal
 	var _velh = (_dire - _esq) * vel;
 	x += _velh;
-	
 	//clamp= delimita um valor "no caso o X" a ficar dentro do range de
 	// 2 numeros "no caso entre o começo e final da tela"
 	// room width = largura da tela
 	// sprite width/2 = largura da sprite dividido para 2 (metade do tamanho)
 	x = clamp(x, (sprite_width/2), room_width - (sprite_width/2))
+	
 	
 	//movimentação vertical
 	var _velv = (_baixo - _cima) * vel;
@@ -55,12 +70,17 @@ controla_player = function()
 	//o mesmo com o Y, mas ao inves de largura eu pego a altura de referencia
 	y = clamp(y, (sprite_height/2), room_height - (sprite_height/2))
 	
+	
 	//diminui o timer do tiro ao executar a propria função do tiro
 	timer_tiro--;
+	
 	
 	//se atirar e o timer tiro forem true
 	if (_atirar and timer_tiro <=0)
 	{
+		//instancia a função do efeito mola (x, y)
+		efeito_mola(2, .8);
+		
 		if (level_tiro == 1)
 		{
 			tiro_1();
@@ -104,15 +124,12 @@ else
 tiro_1 = function()
 {
 	var _tiro = instance_create_layer(x, y, "Projetil", obj_tiro);
-	_tiro.vspeed = -10;
 }
 
 tiro_2 = function()
 {
 	var _tiro = instance_create_layer(x-10, y, "Projetil", obj_tiro);
-	_tiro.vspeed = -10;
 	_tiro = instance_create_layer(x+10, y, "Projetil", obj_tiro);
-	_tiro.vspeed = -10;	
 }
 tiro_3 = function()
 {
@@ -145,10 +162,13 @@ perde_vida = function()
 {
 	if (invencivel = false)
 	{
+		contador_efeito_dano(4);
+		efeito_mola(2, .5);
 		if (vidas > 0)
 		{
 			vidas--;
 			screanshake(10);
+			
 		}
 		else
 		{
