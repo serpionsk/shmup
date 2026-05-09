@@ -1,5 +1,7 @@
 alarm[0] = game_get_speed(gamespeed_fps) * 2;
 randomise();
+inicia_efeito_mola();
+inicia_efeito_dano();
 
 atirando = function()
 {
@@ -10,6 +12,8 @@ atirando = function()
 
 morrendo = function()
 {
+	efeito_mola(1.3, 0.8);
+	contador_efeito_dano(2);
 	screanshake(5);
 	destroi_unidade(obj_explosao_inimigo);
 	var _chance = random(100);

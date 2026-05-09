@@ -4,7 +4,8 @@ estado = "chegando"
 timer_tiro = game_get_speed(gamespeed_fps) * 3;
 contador_tiro = 0;
 decidi_direcao = false;
-
+inicia_efeito_mola();
+inicia_efeito_dano();
 
 maquina_de_estados = function()
 {
@@ -101,6 +102,9 @@ maquina_de_estados = function()
 
 morrendo = function()
 {
+	efeito_mola(1.3, 0.8);
+	contador_efeito_dano(2);
+	
 	vidas--;
 	screanshake(5);
 	if (vidas < 1)
