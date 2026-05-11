@@ -1,3 +1,8 @@
+audio_stop_all();
+audio_play_sound(musica_fundo,0,1);
+
+
+
 #region variaveis
 
 
@@ -78,6 +83,8 @@ controla_player = function()
 	//se atirar e o timer tiro forem true
 	if (_atirar and timer_tiro <=0)
 	{
+		audio_stop_sound(sfx_shoot1);
+		snd_effect(sfx_shoot1);
 		//instancia a função do efeito mola (x, y)
 		efeito_mola(2, .8);
 		
@@ -173,6 +180,7 @@ perde_vida = function()
 		else
 		{
 			instance_destroy();
+			instance_create_layer(x,y,"Particles", obj_explosao_jogador);
 			screanshake(50);
 		}
 	}
@@ -183,6 +191,8 @@ gasta_escudo = function()
 {
 	if (escudos > 0 && meu_escudo = noone)
 	{
+		audio_stop_sound(sfx_shield);
+		snd_effect(sfx_shield);
 		escudos--;
 		meu_escudo = instance_create_layer(x, y, "Escudo", obj_escudo);
 		invencivel = true;
