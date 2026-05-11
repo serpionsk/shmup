@@ -51,6 +51,7 @@
   },
   "name":"shmup",
   "resources":[
+    {"id":{"name":"fnt_space","path":"fonts/fnt_space/fnt_space.yy",},},
     {"id":{"name":"obj_escudo","path":"objects/obj_escudo/obj_escudo.yy",},},
     {"id":{"name":"obj_explosao_inimigo","path":"objects/obj_explosao_inimigo/obj_explosao_inimigo.yy",},},
     {"id":{"name":"obj_explosao_jogador","path":"objects/obj_explosao_jogador/obj_explosao_jogador.yy",},},

@@ -1,5 +1,6 @@
 
 draw_set_valign(1);
+draw_set_font(fnt_space);
 
 for (var i = 0; i < array_length(menu) ; i++)
 {
@@ -17,3 +18,4 @@ for (var i = 0; i < array_length(menu) ; i++)
 }
 
 draw_set_valign(0);
+draw_set_font(-1);
