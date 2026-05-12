@@ -1,5 +1,6 @@
 #region Variáveis globais
 global.debug = false;
+global.transicao = false
 
 #endregion
 
@@ -73,12 +74,6 @@ function desenha_efeito_branco(_funcao_desenho = 0)
 	{
 		_funcao_desenho();
 	}
-}
-
-function snd_effect(_effect = sfx_enemy_explosion)
-{
-	var _pitch = random_range(.9, 1.1)
-	audio_play_sound(_effect, 0, 0, , , _pitch)
 }
 
 #endregion

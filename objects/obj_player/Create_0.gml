@@ -179,9 +179,13 @@ perde_vida = function()
 		}
 		else
 		{
+			global.destino = rm_inicio;
+			layer_sequence_create("Transicao",room_width/2, room_height/2, sq_transicao1)
 			instance_destroy();
 			instance_create_layer(x,y,"Particles", obj_explosao_jogador);
 			screanshake(50);
+			
+			
 		}
 	}
 	
