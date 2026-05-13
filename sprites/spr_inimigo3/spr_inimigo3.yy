@@ -30,8 +30,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Inimigo_2",
-    "path":"folders/Sprites/Inimigos/Inimigo_2.yy",
+    "name":"Inimigo_3",
+    "path":"folders/Sprites/Inimigos/Inimigo_3.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -13,8 +13,8 @@
   "name":"obj_tiro_inimigo",
   "overriddenProperties":[],
   "parent":{
-    "name":"Inimigo",
-    "path":"folders/Objects/Inimigo.yy",
+    "name":"Tiros",
+    "path":"folders/Objects/Inimigo/Tiros.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -1,5 +1,4 @@
-vidas = 10;
-show_debug_message(y)
+vidas = 8;
 estado = "chegando"
 timer_tiro = game_get_speed(gamespeed_fps) * 3;
 contador_tiro = 0;
@@ -13,7 +12,7 @@ maquina_de_estados = function()
 	{
 		case "chegando":
 		{
-			if (y < 160)
+			if (y < random_range(113, 180))
 			{
 				y += 1;
 			}
@@ -92,7 +91,7 @@ maquina_de_estados = function()
 			if (y <= -67)
 			{
 				instance_destroy();
-				show_debug_message("morri!");
+				
 			}
 		}
 		break;
@@ -104,11 +103,12 @@ morrendo = function()
 {
 	efeito_mola(1.3, 0.8);
 	contador_efeito_dano(2);
-	
 	vidas--;
 	screanshake(5);
 	if (vidas < 1)
 	{
+		power_up(80);
+		global.pontos += 8;
 		destroi_unidade(obj_explosao_inimigo);
 		screanshake(10);
 	}

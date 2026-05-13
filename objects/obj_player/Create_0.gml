@@ -1,14 +1,14 @@
 audio_stop_all();
-audio_play_sound(musica_fundo,0,1);
+audio_play_sound(snd_musica,0,1);
 
 
 
 #region variaveis
 
+check_hardmode = false
 
 //velocidade do player
-vel = 2
-
+vel = 2;
 
 //tempo de espera para atirar novamente
 espera_tiro = 18;
@@ -102,16 +102,6 @@ controla_player = function()
 		}
 		timer_tiro = espera_tiro;
 	}
-	
-	if (keyboard_check_pressed(ord("O")))
-	{
-		level_tiro ++;
-	}
-	if (keyboard_check_pressed(ord("L")))
-	{
-		level_tiro --;
-	}
-	if (_enter) perde_vida();
 	if (_e)
 	{
 		gasta_escudo();
@@ -145,9 +135,35 @@ tiro_3 = function()
 }
 ganha_level = function()
 {
+	alarm[1] = game_get_speed(gamespeed_fps) * 10
 	if (level_tiro >= max_level_tiro) exit
 	level_tiro++;
 }
+gera_clone = function()
+{
+	instance_create_layer(x + 50, y + 10, "Player", obj_player_clone)
+	instance_create_layer(x - 50, y + 10, "Player", obj_player_clone)
+	audio_stop_sound(sfx_gera_clone);
+	snd_effect(sfx_gera_clone, .2);
+	alarm[2] = game_get_speed(gamespeed_fps) * 4
+	
+}
+power_up_vidas = function()
+{
+	vidas += 1
+}
+power_up_escudos = function()
+{
+	escudos += 1
+}
+power_up_speed = function()
+{
+	vel = 5
+	alarm[3] = game_get_speed(gamespeed_fps) * 6
+}
+
+
+
 
 //metodo de instancia da GUI
 desenha_icone = function(_sprite = spr_life_GUI, _qtd = vidas, _Yvalue = y)
@@ -179,6 +195,7 @@ perde_vida = function()
 		}
 		else
 		{
+			global.pontos = 0;
 			global.destino = rm_inicio;
 			layer_sequence_create("Transicao",room_width/2, room_height/2, sq_transicao1)
 			instance_destroy();
@@ -190,6 +207,7 @@ perde_vida = function()
 	}
 	
 }
+
 //metodo de escudos gastos
 gasta_escudo = function()
 {

@@ -10,8 +10,8 @@
   "name":"obj_power_up",
   "overriddenProperties":[],
   "parent":{
-    "name":"Player",
-    "path":"folders/Objects/Player.yy",
+    "name":"PowerUps",
+    "path":"folders/Objects/PowerUps.yy",
   },
   "parentObjectId":null,
   "persistent":false,

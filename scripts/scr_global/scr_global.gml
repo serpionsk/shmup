@@ -1,6 +1,9 @@
 #region Variáveis globais
 global.debug = false;
-global.transicao = false
+global.transicao = false;
+global.pontos = 0;
+global.spawn3 = 1;
+global.gamemode = "easy";
 
 #endregion
 
@@ -74,6 +77,27 @@ function desenha_efeito_branco(_funcao_desenho = 0)
 	{
 		_funcao_desenho();
 	}
+}
+
+function power_up(_probabilidade = 95)
+{
+	var _power_up_atual = 0;
+	var _power_ups = [obj_power_up, obj_power_up_clone, obj_power_up_hp, obj_power_up_escudo, obj_power_up_speed];
+	var _random_select = irandom(array_length(_power_ups)-1);
+	var _chance = random(100);
+	
+	if (_chance > _probabilidade)
+	{
+		instance_create_layer(x, y, "Coletaveis", _power_ups[_random_select]);
+	}
+}
+function sound_power_up(_snd_up = sfx_power_up_colect)
+{
+	instance_destroy();
+	global.pontos += 5
+	var _part = instance_create_layer(x, y, layer, obj_explosao_tiro);
+	_part.image_angle = random(359);
+	snd_effect(_snd_up, .2);
 }
 
 #endregion

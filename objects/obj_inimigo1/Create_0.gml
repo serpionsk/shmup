@@ -18,11 +18,8 @@ morrendo = function()
 	contador_efeito_dano(2);
 	screanshake(5);
 	destroi_unidade(obj_explosao_inimigo);
-	var _chance = random(100);
-	if (_chance > 90)
-	{
-		instance_create_layer(x, y, "Coletaveis", obj_power_up);
-	}
+	power_up(90);
+
 	snd_effect(sfx_enemy_explosion);
 }
 
