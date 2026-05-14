@@ -162,13 +162,13 @@ function muda_cor_planeta()
 function muda_cor_player()
 {
 	var _nave_GUI = obj_player_GUI
-	if (global.nave_atual >= 2)
+	if (global.nave_atual > 5)
 	{
 		global.nave_atual = 0
 	}
-	else if (global.nave_atual <= -0)
+	else if (global.nave_atual <= -1)
 	{
-		global.nave_atual = 2
+		global.nave_atual = 5
 	}
 	
 	
@@ -187,6 +187,34 @@ function muda_cor_player()
 				_nave_GUI.sprite_index = spr_player_red;
 			}
 			global.cor_player = "red"
+		break;
+		case 2:
+			if (instance_exists(_nave_GUI))
+			{
+				_nave_GUI.sprite_index = spr_player_roxo;
+			}
+			global.cor_player = "roxo"
+		break;
+		case 3:
+			if (instance_exists(_nave_GUI))
+			{
+				_nave_GUI.sprite_index = spr_player_verde;
+			}
+			global.cor_player = "verde"
+		break;
+		case 4:
+			if (instance_exists(_nave_GUI))
+			{
+				_nave_GUI.sprite_index = spr_player_pretobranco;
+			}
+			global.cor_player = "pretobranco"
+		break;
+		case 5:
+			if (instance_exists(_nave_GUI))
+			{
+				_nave_GUI.sprite_index = spr_player_clone;
+			}
+			global.cor_player = "ciano"
 		break;
 	}
 }

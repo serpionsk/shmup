@@ -1,6 +1,6 @@
 //funcao de movimentacao, escudo e tiro do player
 controla_player();
-
+player_skin();
 
 //se quiser voltar mais rapido aumente a variavel _modificador que por padrao ja e 0.3
 desfaz_efeito_mola();

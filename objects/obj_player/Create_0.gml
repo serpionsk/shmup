@@ -221,4 +221,29 @@ gasta_escudo = function()
 		alarm[0] = game_get_speed(gamespeed_fps) * segundos_invencivel;
 	}
 }
+
+player_skin = function()
+{
+	switch(global.cor_player)
+		{
+			case "padrao":
+				sprite_index = spr_player
+			break;
+			case "red":
+				sprite_index = spr_player_red
+			break;
+			case "roxo":
+				sprite_index = spr_player_roxo
+			break;
+			case "verde":
+				sprite_index = spr_player_verde
+			break;
+			case "pretobranco":
+				sprite_index = spr_player_pretobranco
+			break;
+			case "ciano":
+				sprite_index = spr_player_clone
+			break;
+		}
+}
 #endregion
