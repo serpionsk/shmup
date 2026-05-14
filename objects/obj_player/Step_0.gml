@@ -13,3 +13,4 @@ if (global.gamemode == "hard" && !check_hardmode)
 	check_hardmode = true;
 }
 
+muda_cor_planeta();

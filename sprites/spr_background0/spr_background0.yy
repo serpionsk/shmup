@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Backgrounds",
-    "path":"folders/Sprites/Backgrounds.yy",
+    "name":"padrao",
+    "path":"folders/Sprites/Backgrounds/padrao.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

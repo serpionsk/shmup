@@ -1,0 +1,1 @@
+muda_cor_planeta();

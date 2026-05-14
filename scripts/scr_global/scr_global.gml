@@ -5,6 +5,12 @@ global.pontos = 0;
 global.spawn3 = 1;
 global.gamemode = "easy";
 
+global.setaatual = 0;
+
+global.planeta_atual = 0;
+global.nave_atual = 0;
+global.cor_player = "padrao"
+
 #endregion
 
 #region Funções
@@ -98,6 +104,91 @@ function sound_power_up(_snd_up = sfx_power_up_colect)
 	var _part = instance_create_layer(x, y, layer, obj_explosao_tiro);
 	_part.image_angle = random(359);
 	snd_effect(_snd_up, .2);
+}
+
+function muda_cor_planeta()
+{
+	var layer_id_bg0 = layer_get_id("bg_0");
+	var back_id_bg0 = layer_background_get_id(layer_id_bg0);
+	if (global.planeta_atual >= 5)
+	{
+		global.planeta_atual = 0
+	}
+	else if (global.planeta_atual <= -1)
+	{
+		global.planeta_atual = 4
+	}
+	
+	
+	switch(global.planeta_atual)
+	{
+		case 0:
+			if (instance_exists(obj_planet))
+			{
+				obj_planet.sprite_index = spr_planet_padrao;
+			}
+			layer_background_sprite(back_id_bg0, spr_background0);
+		break;
+		case 1:
+			if (instance_exists(obj_planet))
+			{
+				obj_planet.sprite_index = spr_planet_red;
+			}
+			layer_background_sprite(back_id_bg0, spr_background0_red);
+		break;
+		case 2:
+			if (instance_exists(obj_planet))
+			{
+				obj_planet.sprite_index = spr_planet_roxo;
+			}
+			layer_background_sprite(back_id_bg0, spr_background0_roxo);
+		break;
+		case 3:
+			if (instance_exists(obj_planet))
+			{
+				obj_planet.sprite_index = spr_planet_verde;
+			}
+			layer_background_sprite(back_id_bg0, spr_background0_verde);
+		break;
+		case 4:
+			if (instance_exists(obj_planet))
+			{
+				obj_planet.sprite_index = spr_planet_PB;
+			}
+			layer_background_sprite(back_id_bg0, spr_background0_PB);
+		break;
+	}
+}
+function muda_cor_player()
+{
+	var _nave_GUI = obj_player_GUI
+	if (global.nave_atual >= 2)
+	{
+		global.nave_atual = 0
+	}
+	else if (global.nave_atual <= -0)
+	{
+		global.nave_atual = 2
+	}
+	
+	
+	switch(global.nave_atual)
+	{
+		case 0:
+			if (instance_exists(_nave_GUI))
+			{
+				_nave_GUI.sprite_index = spr_player;
+			}
+			global.cor_player = "padrao"
+		break;
+		case 1:
+			if (instance_exists(_nave_GUI))
+			{
+				_nave_GUI.sprite_index = spr_player_red;
+			}
+			global.cor_player = "red"
+		break;
+	}
 }
 
 #endregion
