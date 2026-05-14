@@ -26,8 +26,8 @@
   },
   "name":"sq_modehard",
   "parent":{
-    "name":"Sequences",
-    "path":"folders/Sequences.yy",
+    "name":"hard mode",
+    "path":"folders/Sequences/hard mode.yy",
   },
   "playback":0,
   "playbackSpeed":60.0,

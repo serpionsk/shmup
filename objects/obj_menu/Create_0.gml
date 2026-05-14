@@ -1,7 +1,7 @@
 viewHei = display_get_gui_height()/2;
 viewWid = display_get_gui_width()/2;
 
-menu = ["Play", "Tutorial", "Options", "Customize", "Quit"];
+menu = ["Play", "Tutorial", "Customize", "Quit"];
 atual = 0;
 margem = 40;
 
@@ -72,17 +72,11 @@ ativa_menu = function()
 		break;
 		case 2:
 			layer_sequence_create("Transicao", room_width/2, room_height/2, sq_transicao1);
-			global.destino = rm_options;
-			global.transicao = true;
-		break;		
-		case 3:
-			layer_sequence_create("Transicao", room_width/2, room_height/2, sq_transicao1);
 			global.destino = rm_customize;
 			global.transicao = true;
 		break;
-		
 		//Quit
-		case 4:
+		case 3:
 			game_end();
 		break;
 	}

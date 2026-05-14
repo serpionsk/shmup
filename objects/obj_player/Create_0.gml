@@ -195,6 +195,7 @@ perde_vida = function()
 		}
 		else
 		{
+			global.pontosmaximos = global.pontos;
 			global.pontos = 0;
 			global.destino = rm_inicio;
 			layer_sequence_create("Transicao",room_width/2, room_height/2, sq_transicao1)

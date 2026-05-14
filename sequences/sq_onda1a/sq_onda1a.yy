@@ -26,8 +26,8 @@
   },
   "name":"sq_onda1a",
   "parent":{
-    "name":"Sequences",
-    "path":"folders/Sequences.yy",
+    "name":"normal mode",
+    "path":"folders/Sequences/normal mode.yy",
   },
   "playback":0,
   "playbackSpeed":60.0,

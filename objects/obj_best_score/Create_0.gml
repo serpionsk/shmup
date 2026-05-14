@@ -1,0 +1,1 @@
+viewWid = display_get_gui_width()/2;
